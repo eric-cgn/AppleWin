@@ -45,7 +45,7 @@ enum {
 
 - (instancetype)initWithCoder:(NSCoder *)coder {
     if ((self = [super initWithCoder:coder])) {
-        self.forceCapsLock = YES;
+        self.forceCapsLock = NO; // TODO: check if Apple //e
         self.trackingRectTag = [self addTrackingRect:self.bounds owner:self userData:NULL assumeInside:YES];
     }
     return self;
@@ -80,10 +80,10 @@ enum {
             ch = ASCII_CR;
             break;
         case kVK_Delete:
-            if (event.modifierFlags & NSEventModifierFlagOption) {
-                ch = ASCII_DEL;
-                break;
-            }
+            //if (event.modifierFlags & NSEventModifierFlagOption) {
+            ch = ASCII_DEL;
+            break;
+            //}
             // fallthrough
         case kVK_LeftArrow:
             ch = ASCII_BS;
